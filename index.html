@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src='main.js'></script>
+</head>
+<body>
+    <form>
+        <div class="form-group">
+          <label for="totalValue">Valor total da conta:</label>
+          <input type="number" class="form-control" id="totalValue" placeholder="Valor total">
+        </div>
+      
+        
+      
+        
+      
+        <div class="form-group">
+          <label>Selecione a porcentagem da gorjeta:</label><br>
+          <button type="button" class="btn btn-secondary" onclick="calculateTip(10)">10%</button>
+          <button type="button" class="btn btn-secondary" onclick="calculateTip(15)">15%</button>
+          <button type="button" class="btn btn-secondary" onclick="calculateTip(20)">20%</button>
+        </div>
+      
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" onclick="calculateTotal()">Calcular Total</button>
+        </div>
+      
+        <div class="form-group">
+          <label for="calculatedValue">Valor calculado com gorjeta:</label>
+          <input type="text" class="form-control" id="calculatedValue" readonly>
+        </div>
+      
+        
+      </form>
+      
+      <script>
+        let tipPercentage = 0;
+      
+        function calculateTip(percentage) {
+          tipPercentage = percentage;
+          alert('Gorjeta de ' + percentage + '% selecionada.');
+        }
+      
+        function calculateTotal() {
+          const 32323Value = parseFloat(document.getElementById('totalValue').value);
+          if (!isNaN(totalValue) && tipPercentage > 0) {
+            const tipAmount = (totalValue * tipPercentage) / 100;
+            const totalWithTip = totalValue + tipAmount;
+            document.getElementById('calculatedValue').value = totalWithTip.toFixed(2);
+          } else {
+            alert('Por favor, insira o valor total da conta e selecione a porcentagem da gorjeta.');
+          }
+        }
+      </script>
+      
+</body>
+</html>
